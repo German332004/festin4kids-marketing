@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festin 4 Kids - Plan de Marketing</title>
+    <style>
+        /* CSS Minimalista con colores efusivos */
+        :root {
+            --primary: #FF6B6B;
+            --secondary: #4ECDC4;
+            --accent: #FFBE0B;
+            --dark: #2F3640;
+            --light: #F5F6FA;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+            touch-action: pan-y; /* Mejora el comportamiento táctil */
+        }
+        
+        .presentation {
+            width: 100vw;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 1rem;
+        }
+        
+        .slide {
+            width: 100%;
+            min-height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            transform: translateX(100%);
+            overflow-y: auto; /* Permite scroll interno si el contenido es largo */
+            overscroll-behavior: contain; /* Evita el efecto de rebote */
+            scroll-behavior: smooth;
+        }
+        
+        .slide.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .slide.prev {
+            transform: translateX(-100%);
+        }
+        
+        h1 {
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            margin-bottom: 1rem;
+            color: var(--primary);
+            line-height: 1.3;
+        }
+
+        .title-highlight {
+            color: var(--accent);
+            font-weight: bold;
+            display: inline-block;
+        }
+        
+        h2 {
+            font-size: clamp(1.3rem, 4vw, 2rem);
+            margin-bottom: 1rem;
+            color: var(--secondary);
+            line-height: 1.3;
+        }
+        
+        p {
+            font-size: clamp(0.9rem, 3vw, 1.2rem);
+            max-width: 800px;
+            margin-bottom: 1.2rem;
+            line-height: 1.5;
+            padding: 0 0.5rem;
+            text-align:justify;
+        }
+        
+        ul {
+            text-align: left;
+            font-size: clamp(0.9rem, 3vw, 1.1rem);
+            max-width: 700px;
+            margin-bottom: 1.2rem;
+            line-height: 1.5;
+            padding: 0 0.5rem 0 1.5rem;
+            width: 100%;
+        }
+        
+        li {
+            margin-bottom: 0.6rem;
+        }
+        
+        .EMPRESA {
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        .highlight {
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        /* Estilos para los logos en la primera diapositiva */
+        .logos-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+        /* Estilos para la diapositiva de automatización */
+.automation-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100vh - 150px); /* Ajusta según el espacio que ocupan otros elementos */
+    margin-top: 1rem;
+    overflow: hidden;
+}
+
+.automation-image {
+    max-width: 150%;
+    max-height: 150%;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}/* Estilos para el slide de perfil */
+.perfil-container {
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
+    margin: 1rem auto;
+    position: relative;
+}
+
+.perfil-item {
+    flex: 1;
+    display: flex;
+    justify-content:center;
+    padding: 1rem;
+}
+
+.perfil-image {
+    max-width: 70%;
+    max-height: 70vh;
+    object-fit: contain;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.info-boxes {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    gap: 2rem;
+}
+
+.info-box {
+    position: relative;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-left: 4px solid var(--accent);
+}
+
+.info-box::after {
+    content: '';
+    position: absolute;
+    right: -30%;
+    top: 50%;
+    width: 30%;
+    height: 2px;
+    background-color: var(--accent);
+    transform: translateY(-50%);
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .perfil-container {
+        flex-direction: column;
+    }
+    
+    .perfil-item {
+        justify-content: center;
+    }
+    
+    .perfil-image {
+        max-width: 100%;
+    }
+    
+    .info-box::after {
+        display: none;
+    }
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .automation-container {
+        height: calc(100vh - 120px);
+    }
+}
+
+@media (max-height: 500px) and (max-width: 820px) {
+    .automation-container {
+        height: calc(100vh - 80px);
+    }
+}
+/* Estilos para el contenedor de flyers */
+.flyers-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1000px;
+    margin: 1rem auto;
+    padding: 0 1rem;
+}
+
+.flyer-item {
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flyer-image {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.flyer-image:hover {
+    transform: scale(1.03);
+}
+
+/* Ajustes responsivos */
+@media (max-width: 900px) {
+    .flyers-container {
+        gap: 1rem;
+    }
+    .flyer-item {
+        min-width: 200px;
+    }
+}
+
+@media (max-width: 700px) {
+    .flyers-container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .flyer-item {
+        max-width: 80%;
+    }
+}
+
+@media (max-height: 500px) and (max-width: 820px) {
+    .flyer-image {
+        max-height: 250px;
+    }
+}
+                
+        /* Estilos para los logos en las demás diapositivas */
+        .corner-logos {
+            position: fixed;
+            bottom: 4rem;
+            right: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            z-index: 90;
+            touch-action: manipulation; /* Mejora la respuesta táctil */
+        }
+        
+        .logo {
+            max-width: min(180px, 40vw);
+            height: auto;
+            max-height: 70px;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+            transition: transform 0.3s ease;
+        }
+                
+        .logo-small {
+            max-width: 60px;
+            max-height: 40px;
+            opacity: 0.8;
+        }
+        
+        .logo-small:hover {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        .nav-buttons {
+            position: fixed;
+            bottom: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            z-index: 100;
+            width: 100%;
+            justify-content: center;
+            padding: 0 1rem;
+            touch-action: manipulation;
+        }
+        
+        button {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 50px;
+            font-size: clamp(0.8rem, 3vw, 1rem);
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            max-width: 120px;
+            touch-action: manipulation;
+        }
+        
+        .prev-btn {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .next-btn {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .slide-indicators {
+            position: fixed;
+            bottom: 3.5rem;
+            display: flex;
+            gap: 0.5rem;
+            z-index: 100;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0 1rem;
+            max-width: 100%;
+            touch-action: manipulation;
+        }
+        
+        .indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: rgba(79, 205, 196, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .indicator.active {
+            background-color: var(--secondary);
+            transform: scale(1.3);
+        }
+        
+        .color-block {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            opacity: 0.1;
+            z-index: -1;
+        }
+        
+        .block-1 {
+            background-color: var(--primary);
+            top: -50px;
+            right: -50px;
+            width: min(300px, 70vw);
+            height: min(300px, 70vw);
+        }
+        
+        .block-2 {
+            background-color: var(--secondary);
+            bottom: -50px;
+            left: -50px;
+            width: min(350px, 80vw);
+            height: min(350px, 80vw);
+        }
+        
+        .block-3 {
+            background-color: var(--accent);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: min(200px, 50vw);
+            height: min(200px, 50vw);
+        }
+        
+        .author-line {
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            color: var(--dark);
+            margin-top: 1rem;
+            padding: 0.4rem 0.8rem;
+            border-top: 2px solid var(--secondary);
+            border-bottom: 2px solid var(--secondary);
+        }
+
+        .mission-vision-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 1rem auto;
+            width: 100%;
+        }
+
+        .mission-box, .vision-box {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            padding: 1.2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+
+        .mission-box {
+            border-left: 5px solid var(--primary);
+        }
+
+        .vision-box {
+            border-left: 5px solid var(--secondary);
+        }
+
+        .mission-box h3, .vision-box h3 {
+            color: var(--dark);
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .mission-box p, .vision-box p {
+            text-align: left;
+            font-size: clamp(0.9rem, 3vw, 1.1rem);
+            line-height: 1.6;
+        }
+
+        .marketing-ps-container {
+            display: grid; /* Usamos grid para mejor control responsivo */
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Columnas auto-ajustables */
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 1rem auto;
+            padding: 0 1rem;
+            width: 100%;
+        }
+
+        .p-box-container {
+            width: 100%;
+            padding: 0.3rem;
+        }
+
+        .p-box {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            height: 100%;
+        }
+
+        .p-box h3 {
+            color: var(--dark);
+            font-size: clamp(1rem, 3vw, 1.2rem); /* H3 responsivo */
+            margin-bottom: 0.8rem;
+            text-align: center;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid;
+        }
+
+        .product-box h3 {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .price-box h3 {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        .place-box h3 {
+            color: var(--secondary);
+            border-bottom-color: var(--secondary);
+        }
+
+        .promotion-box h3 {
+            color: #A55EEA;
+            border-bottom-color: #A55EEA;
+        }
+
+        .p-box ul {
+            padding-left: 1.2rem;
+            margin: 0;
+            font-size: clamp(0.8rem, 2.5vw, 1rem); /* Ul responsivo */
+        }
+
+        .p-box li {
+            margin-bottom: 0.5rem;
+            font-size: inherit; /* Hereda del ul */
+            line-height: 1.4;
+        }
+
+        .content-strategy-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 1rem auto;
+            padding: 0 1rem;
+            width: 100%;
+        }
+
+        .platform-card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 1.2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+
+        .platform-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        .platform-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid;
+        }
+
+        .platform-header h3 {
+            font-size: clamp(1.1rem, 3vw, 1.2rem); /* H3 responsivo */
+            margin: 0;
+        }
+
+        .post-frequency {
+            font-size: clamp(0.7rem, 2vw, 0.8rem); /* Fuente responsiva */
+            background-color: var(--accent);
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .platform-card ul {
+            font-size: clamp(0.85rem, 2.8vw, 1rem); /* Ul responsivo */
+        }
+
+        /* Tarjetas con colores diferenciados */
+        .instagram-card .platform-header {
+            border-bottom-color: #E1306C;
+        }
+
+        .facebook-card .platform-header {
+            border-bottom-color: #1877F2;
+        }
+
+        .blog-card .platform-header {
+            border-bottom-color: var(--primary);
+        }
+
+        .email-card .platform-header {
+            border-bottom-color: var(--secondary);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .mission-vision-container {
+                gap: 1rem;
+            }
+            
+            .mission-box, .vision-box {
+                padding: 1rem;
+            }
+
+            .marketing-ps-container, .content-strategy-container {
+                grid-template-columns: 1fr; /* Una columna en móviles */
+                gap: 1rem;
+            }
+            
+            .p-box, .platform-card {
+                padding: 1rem;
+            }
+
+            .slide-indicators {
+                bottom: 3rem; /* Ajuste para espacio en móviles */
+            }
+        }
+
+        /* Tablet */
+        @media (min-width: 600px) and (max-width: 1024px) {
+            .slide {
+                padding: 2rem;
+            }
+            
+            .logo-small {
+                max-width: 70px;
+                max-height: 50px;
+            }
+            
+            .corner-logos {
+                bottom: 5rem;
+                right: 1.5rem;
+            }
+
+            .marketing-ps-container {
+                grid-template-columns: repeat(2, 1fr); /* Dos columnas en tablets */
+            }
+        }
+
+        /* Ajustes específicos para móviles en orientación horizontal */
+        @media (max-height: 500px) and (max-width: 820px) { /* Móviles en horizontal */
+            .slide {
+                padding: 0.8rem;
+                justify-content: flex-start;
+            }
+            
+            h1 {
+                margin-bottom: 0.4rem;
+                font-size: 1.6rem;
+            }
+            
+            h2 {
+                font-size: 1.3rem;
+                margin-bottom: 0.6rem;
+            }
+            
+            .logos-container {
+                margin-bottom: 0.8rem;
+                gap: 0.5rem;
+            }
+
+            .logo {
+                max-height: 45px;
+                max-width: 150px;
+            }
+            
+            .logo-small {
+                max-width: 35px;
+                max-height: 25px;
+            }
+            
+            .corner-logos {
+                bottom: 2.5rem;
+                right: 0.5rem;
+                gap: 0.3rem;
+            }
+            
+            ul, p {
+                margin-bottom: 0.4rem;
+                font-size: 0.85rem;
+                padding: 0 0.2rem 0 1rem;
+            }
+            
+            .slide-indicators {
+                bottom: 2.2rem;
+                gap: 0.4rem;
+            }
+            
+            .nav-buttons {
+                bottom: 0.5rem;
+                padding: 0 0.8rem;
+                gap: 0.4rem;
+            }
+
+            button {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.75rem;
+            }
+            
+            .author-line {
+                margin-top: 0.4rem;
+                font-size: 0.75rem;
+                padding: 0.3rem 0.6rem;
+            }
+            
+            .p-box li {
+                font-size: 0.75rem;
+                margin-bottom: 0.3rem;
+            }
+            
+            .p-box h3 {
+                font-size: 0.95rem;
+                margin-bottom: 0.4rem;
+            }
+
+            .platform-card {
+                padding: 0.8rem;
+            }
+
+            .platform-header h3 {
+                font-size: 1rem;
+            }
+
+            .post-frequency {
+                font-size: 0.65rem;
+                padding: 0.1rem 0.4rem;
+            }
+
+            .platform-card ul {
+                font-size: 0.8rem;
+                padding-left: 1rem;
+            }
+            
+        }
+        
+
+        /* Ajustes para pantallas grandes (desktops) */
+        @media (min-width: 1025px) {
+            .presentation {
+                padding: 2rem;
+            }
+            .slide {
+                padding: 3rem;
+            }
+            
+            .corner-logos {
+                bottom: 6rem;
+                right: 2rem;
+            }
+
+            .marketing-ps-container {
+                grid-template-columns: repeat(4, 1fr); /* Cuatro columnas en desktop */
+            }
+
+            .p-box {
+                padding: 1.2rem;
+            }
+
+            .content-strategy-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation">
+        <div class="color-block block-1"></div>
+        <div class="color-block block-2"></div>
+        <div class="color-block block-3"></div>
+
+        <!-- Slide 1 - Portada -->
+
+        <div class="slide active">
+            <div class="logos-container">
+                <img src="logo1.jpg" alt="Festin 4 Kids Logo" class="logo">
+                <img src="logo2.jpeg" alt="Segundo Logo" class="logo">
+            </div>
+            
+            <h1>PLAN DE MARKETING <span class="title-highlight">DIGITAL</span></h1>
+            <h2>FESTÍN 4 KIDS</h2>
+            <p>Creando momentos mágicos para los más pequeños</p>
+            
+            <div class="author-line">Tabeila Correa</div>
+        </div>
+
+        <!-- Slide 2 - Empresa -->
+
+        <div class="slide">
+            <div class="corner-logos">
+                <img src="logo1.jpg" alt="Festin 4 Kids Logo" class="logo logo-small">
+                <img src="logo2.jpeg" alt="Segundo Logo" class="logo logo-small">
+            </div>
+            <h2>FESTÍN 4 KIDS</h2>
+            <p><span class="EMPRESA">FESTÍN 4 KIDS</span> es una empresa de <span class="EMPRESA">servicios</span> de catering para fiestas infantiles, con menús saludables y deliciosos que capturan la atención y la imaginación de los más pequeños.</p>
+            <ul>
+                <li><span class="highlight">Ubicación:</span> Estamos ubicados en la calle 12 entre carreras 19 y 20 de barrio obrero</li>
+                <li><span class="highlight">5 años de experiencia</span> nos da la confianza para hacer de cualquier evento todo un acontecimiento</li>
+            </ul>
+        </div>
+
+        <!-- Slide 3 - Mision y Vision -->
+
+        <div class="slide">
+            <div class="corner-logos">
+                <img src="logo1.jpg" alt="Festin 4 Kids Logo" class="logo logo-small">
+                <img src="logo2.jpeg" alt="Segundo Logo" class="logo logo-small">
+            </div>
+            <h2>MISIÓN y VISIÓN</h2>
+            
+            <div class="mission-vision-container">
+                <div class="mission-box">
+                    <h3>MISIÓN</h3>
+                    <p>Ofrecer experiencias culinarias <span class="highlight">saludables y creativas</span> para fiestas infantiles, combinando <span class="highlight">nutrición balanceada</span> con presentaciones <span class="highlight">divertidas y temáticas</span>, acompañadas de <span class="highlight">decoraciones profesionales</span> que transforman cada evento en un momento mágico.</p>
+                </div>
+                
+                <div class="vision-box">
+                    <h3>VISIÓN</h3>
+                    <p>Ser reconocidos como líderes en catering infantil, innovando constantemente en <span class="highlight">menús saludables</span> y <span class="highlight">decoraciones espectaculares</span>, siendo la opción preferida por familias que buscan <span class="highlight">calidad, creatividad y bienestar</span> para sus celebraciones.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide intermedia 1 -->
+         <div class="slide">
+            <div class="corner-logos">
+                <img src="logo1.jpg" alt="Festin 4 Kids Logo" class="logo logo-small">
+                <img src="logo2.jpeg" alt="Segundo Logo" class="logo logo-small">
+            </div>
+            <h1>MIX DE MARKETING</h1>
+         </div>   
+
+        <!-- Slide 4 -4 P's del Marketing -->
+        
+        <div class="slide">
+            <div class="corner-logos">
+                <img src="logo1.jpg" alt="Festin 4 Kids Logo" class="logo logo-small">
+                <img src="logo2.jpeg" alt="Segundo Logo" class="logo logo-small">
+            </div>
+            
+            <h2>LAS 4 P's DEL MARKETING PARA <span class="title-highlight">FESTÍN 4 KIDS</span></h2>
+            
+            <div class="marketing-ps-container">
+                <div class="p-box-container">
+                    <div class="p-box product-box">
+                        <h3>PRODUCTO</h3>
+                        <ul>
+                            <li>Menús infantiles <span class="highlight">saludables y creativos</span></li>
+                            <li>Diseños temáticos <span class="highlight">personalizados</span></li>
+                            <li>Opciones para <span class="highlight">dietas especiales</span></li>
+                            <li><span class="highlight">Decoración profesional</span> del espacio</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="p-box-container">
+                    <div class="p-box price-box">
+                        <h3>PRECIO</h3>
+                        <ul>
+                            <li>Paquetes <span class="highlight">todo incluido</span></li>
+                            <li>Opciones para <span class="highlight">diferentes presupuestos</span></li>
+                            <li>Promociones para <span class="highlight">eventos recurrentes</span></li>
+                            <li>Valor premium por <span class="highlight">experiencia única</span></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="p-box-container">
+                    <div class="p-box place-box">
+                        <h3>PLAZA</h3>
+                        <ul>
+                            <li>Servicio en <span class="highlight">todo el área metropolitana</span></li>
+                            <li>Recintos para eventos <span class="highlight">propios y externos</span></li>
+                            <li>Presencia en <span class="highlight">centros comerciales</span></li>
+                            <li>Coordinación con <span class="highlight">animadores locales</span></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="p-box-container">
+                    <div class="p-box promotion-box">
+                        <h3>PROMOCIÓN</h3>
+                        <ul>
+                            <li>Marketing en <span class="highlight">redes sociales</span></li>
+                            <li>Colaboraciones con <span class="highlight">influencers</span></li>
+                            <li>Degustaciones <span class="highlight">gratuitas</span></li>
+                            <li>Folletería en <span class="highlight">guarderías y colegios</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5 -Plan de contenidos -->
+
+        <div class="slide">
+            <div class="corner-logos">
+                <img src="logo1.jpg" alt="Festin 4 Kids Logo" class="logo logo-small">
+                <img src="logo2.jpeg" alt="Segundo Logo" class="logo logo-small">
+            </div>
+            
+            <h2>ESTRATEGIA DIGITAL Y <span class="title-highlight">PLAN DE CONTENIDOS</span></h2>
+            
+            <div class="content-strategy-container">
+                <div class="platform-card instagram-card">
+                    <div class="platform-header">
+                        <h3>Instagram</h3>
+                        <div class="post-frequency">3-5 posts/semana</div>
+                    </div>
+                    <ul>
+                        <li><span class="highlight">Reels:</span> Menús creativos en acción</li>
+                        <li><span class="highlight">Stories:</span> Eventos en tiempo real</li>
+                        <li><span class="highlight">Guías:</span> Temáticas para fiestas</li>
+                        <li><span class="highlight">IGTV:</span> Tutoriales de decoración</li>
+                    </ul>
+                </div>
+                
+                <div class="platform-card facebook-card">
+                    <div class="platform-header">
+                        <h3>Facebook</h3>
+                        <div class="post-frequency">2-3 posts/semana</div>
+                    </div>
+                    <ul>
+                        <li><span class="highlight">Live:</span> Q&A con nutricionistas</li>
+                        <li><span class="highlight">Álbumes:</span> Eventos destacados</li>
+                        <li><span class="highlight">Grupos:</span> Comunidad de padres</li>
+                    </ul>
+                </div>
+                
+                <div class="platform-card blog-card">
+                    <div class="platform-header">
+                        <h3>Blog</h3>
+                        <div class="post-frequency">1 artículo/semana</div>
+                    </div>
+                    <ul>
+                        <li><span class="highlight">Tutoriales:</span> Decoración DIY</li>
+                        <li><span class="highlight">Nutrición:</span> Menús saludables</li>
+                        <li><span class="highlight">Tendencias:</span> Temáticas infantiles</li>
+                    </ul>
+                </div>
+                
+                <div class="platform-card email-card">
+                    <div class="platform-header">
+                        <h3>Email Marketing</h3>
+                        <div class="post-frequency">2 newsletters/mes</div>
+                    </div>
+                    <ul>
+                        <li><span class="highlight">Promociones:</span> Ofertas exclusivas</li>
+                        <li><span class="highlight">Ideas:</span> Para próximos eventos</li>
+                        <li><span class="highlight">Testimonios:</span> Clientes satisfechos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 6 -Automatizacion -->
+
+        <div class="slide">
+           <div class="corner-logos">
+        <img src="logo1.jpg" alt="Festin 4 Kids Logo" class="logo logo-small">
+        <img src="logo2.jpeg" alt="Segundo Logo" class="logo logo-small">
+            </div>
+        <h2>AUTOMATIZACION</h2>
+            <div class="automation-container">
+            <img src="auto.png" alt="automatizacion" class="automation-image">
+            </div>
+        </div>
+        
+        <!-- Slide  INTERMEDIA 2 -->
+
+        <div class="slide">
+            <div class="corner-logos">
+                <img src="logo1.jpg" alt="Festin 4 Kids Logo" class="logo logo-small">
+                <img src="logo2.jpeg" alt="Segundo Logo" class="logo logo-small">
+            </div>
+            <h1>BRANDING DE MARCA</h1>            
+        </div>
+
+        <!-- Slide 7 -Flyers -->
+        <div class="slide">
+            <div class="corner-logos">
+        <img src="logo1.jpg" alt="Festin 4 Kids Logo" class="logo logo-small">
+        <img src="logo2.jpeg" alt="Segundo Logo" class="logo logo-small">
+         </div>
+         <h2>FLYERS PROMOCIONALES</h2>
+             <div class="flyers-container">
+                <div class="flyer-item">
+                    <img src="flyer1.png" alt="Flyer 1" class="flyer-image">
+                </div>
+                <div class="flyer-item">
+                    <img src="flyer2.png" alt="Flyer 2" class="flyer-image">
+                </div>
+                <div class="flyer-item">
+                    <img src="flyer3.png" alt="Flyer 3" class="flyer-image">
+                </div>
+             </div>
+        </div>
+            <!-- Slide 8 -Flyers -->
+
+            <div class="slide">
+                <div class="corner-logos">
+        <img src="logo1.jpg" alt="Festin 4 Kids Logo" class="logo logo-small">
+        <img src="logo2.jpeg" alt="Segundo Logo" class="logo logo-small">
+    </div>
+    <h2>PERFIL DE MARCA</h2>
+    <div class="perfil-container">
+        <div class="info-boxes">
+            <div class="info-box">
+                <h3>PARTE SUPERIOR</h3>
+                <p>Imagen de perfil, con informacion de la empresa, direccion y direccion web</p>
+            </div>
+            <div class="info-box">
+                <h3>CARRETE DE HISTORIAS</h3>
+                <p>historias destacadas, video promocional, ubicacion con video, etc...</p>
+            </div>
+            <div class="info-box">
+                <h3>AREA DE POST</h3>
+                <p>Manteniendo una paleta de colores uniforme y continua</p>
+            </div>
+        </div>
+        <div class="perfil-item">
+            <img src="perfil.png" alt="Perfil de marca" class="perfil-image">
+        </div>
+    </div>
+            </div>
+
+        <!-- Slide 9 -Flyers -->
+        <div class="slide">
+            <div class="logos-container">
+                <img src="logo1.jpg" alt="Festin 4 Kids Logo" class="logo">
+                <img src="logo2.jpeg" alt="Segundo Logo" class="logo">
+            </div>
+            <h1>¡Gracias!</h1>
+            <h2>Vamos a hacer de cada fiesta infantil un festín inolvidable</h2>
+            <p>contacto@festin4kids.com<br>+58 412 234 5678</p>
+        </div>
+        
+        <div class="slide-indicators">
+            <div class="indicator active" data-slide="0"></div>
+            <div class="indicator" data-slide="1"></div>
+            <div class="indicator" data-slide="2"></div>
+            <div class="indicator" data-slide="3"></div>
+            <div class="indicator" data-slide="4"></div>
+            <div class="indicator" data-slide="5"></div>
+            <div class="indicator" data-slide="6"></div>
+            <div class="indicator" data-slide="7"></div>
+            <div class="indicator" data-slide="8"></div>
+            <div class="indicator" data-slide="9"></div>
+        </div>
+        
+        <div class="nav-buttons">
+            <button class="prev-btn">Anterior</button>
+            <button class="next-btn">Siguiente</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slide');
+            const indicators = document.querySelectorAll('.indicator');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            let currentSlide = 0;
+            let touchStartX = 0;
+            let touchStartY = 0;
+            let touchEndX = 0;
+            let touchEndY = 0;
+            
+            // Función para mostrar slide
+            function showSlide(index) {
+                // Ocultar todos los slides
+                slides.forEach(slide => {
+                    slide.classList.remove('active', 'prev');
+                });
+                
+                // Mostrar slide actual
+                slides[index].classList.add('active');
+                
+                // Actualizar indicadores
+                indicators.forEach(indicator => {
+                    indicator.classList.remove('active');
+                });
+                indicators[index].classList.add('active');
+                
+                currentSlide = index;
+                
+                // Manejar estado de los botones
+                prevBtn.disabled = index === 0;
+                nextBtn.disabled = index === slides.length - 1;
+            }
+            
+            // Event listeners para botones
+            nextBtn.addEventListener('click', function() {
+                if (currentSlide < slides.length - 1) {
+                    slides[currentSlide].classList.add('prev');
+                    showSlide(currentSlide + 1);
+                }
+            });
+            
+            prevBtn.addEventListener('click', function() {
+                if (currentSlide > 0) {
+                    showSlide(currentSlide - 1);
+                }
+            });
+            
+            // Event listeners para indicadores
+            indicators.forEach(indicator => {
+                indicator.addEventListener('click', function() {
+                    const slideIndex = parseInt(this.getAttribute('data-slide'));
+                    showSlide(slideIndex);
+                });
+            });
+            
+            // Navegación con teclado
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowRight' && currentSlide < slides.length - 1) {
+                    slides[currentSlide].classList.add('prev');
+                    showSlide(currentSlide + 1);
+                } else if (e.key === 'ArrowLeft' && currentSlide > 0) {
+                    showSlide(currentSlide - 1);
+                }
+            });
+            
+            // Manejo de toques - inicio
+            document.addEventListener('touchstart', function(e) {
+                // Solo capturar el inicio del toque si no es un elemento que debe scrollear
+                if (!e.target.closest('.slide') || e.target.classList.contains('slide')) {
+                    touchStartX = e.changedTouches[0].screenX;
+                    touchStartY = e.changedTouches[0].screenY;
+                }
+            }, { passive: true });
+            
+            // Manejo de toques - fin
+            document.addEventListener('touchend', function(e) {
+                // Solo procesar si se inició un toque válido para swipe
+                if (touchStartX !== 0 || touchStartY !== 0) {
+                    touchEndX = e.changedTouches[0].screenX;
+                    touchEndY = e.changedTouches[0].screenY;
+                    handleSwipe();
+                    // Reiniciar variables para evitar swipes accidentales o dobles
+                    touchStartX = 0;
+                    touchStartY = 0;
+                }
+            }, { passive: true });
+            
+            // Manejo de swipe
+            function handleSwipe() {
+                const diffX = touchStartX - touchEndX;
+                const diffY = touchStartY - touchEndY;
+                
+                // Umbral mínimo para considerar un swipe
+                const swipeThreshold = 50; 
+
+                // Determinar si el gesto es principalmente horizontal y si supera el umbral
+                if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > swipeThreshold) {
+                    if (diffX > 0 && currentSlide < slides.length - 1) {
+                        // Swipe izquierda - siguiente slide
+                        slides[currentSlide].classList.add('prev');
+                        showSlide(currentSlide + 1);
+                    } else if (diffX < 0 && currentSlide > 0) {
+                        // Swipe derecha - slide anterior
+                        showSlide(currentSlide - 1);
+                    }
+                }
+            }
+            
+            // Inicializar presentación
+            showSlide(0);
+        });
+    </script>
+</body>
+</html>
